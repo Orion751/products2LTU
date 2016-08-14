@@ -28,6 +28,8 @@ creds="$1"
 
 source="$2"
 
+projectNo="$3"
+
 tag1Key='source'
 tag1Value='Best Buy'
 tag2Key='category'
@@ -40,7 +42,7 @@ for dir in "$source"/*; do
       for subDir in "$dir"/*; do
           
           visName=`basename "$subDir"`
-          visID=`curl -i -X POST -u "$creds" https://cloud.ltutech.com/api/v1/projects/491/visuals/ -F title="$visName" -F name="$visName" -F metadata-0-key="$tag1Key" -F metadata-0-value="$tag1Value" -F metadata-1-key="$tag2Key" -F metadata-1-value="$tag2Value" | tail -1 | python -mjson.tool | grep \"id\" | head -1 | grep -oP '\d*'`
+          visID=`curl -i -X POST -u "$creds" https://cloud.ltutech.com/api/v1/projects/"$projectNo"/visuals/ -F title="$visName" -F name="$visName" -F metadata-0-key="$tag1Key" -F metadata-0-value="$tag1Value" -F metadata-1-key="$tag2Key" -F metadata-1-value="$tag2Value" | tail -1 | python -mjson.tool | grep \"id\" | head -1 | grep -oP '\d*'`
 
           for image in "$subDir"/*; do
 
