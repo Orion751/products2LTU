@@ -30,7 +30,7 @@ source="$2"
 
 tag1Key='source'
 tag1Value='Best Buy'
-tag2Key='product type'
+tag2Key='category'
 
 tag2Value=''
 
