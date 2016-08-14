@@ -46,7 +46,7 @@ for dir in "$source"/*; do
 
           for image in "$subDir"/*; do
 
-              curl -i -X POST -u "$creds" https://cloud.ltutech.com/api/v1/projects/visuals/"$visID"/images/ -F image=@"$image"
+              curl -i -X POST -u "$creds" https://cloud.ltutech.com/api/v1/projects/visuals/"$visID"/images/ -F image=@"$image" &
 
           done
 
